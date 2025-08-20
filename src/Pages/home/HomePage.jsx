@@ -9,11 +9,15 @@ export function HomePage({cart}) {
   const[products,setProducts] = useState([])
   
   useEffect(()=>{
-    axios.get("/api/products").then((res) => {
-       setProducts(res.data)
-    });
-  },[])
+      const getHomeData = async()=>{
+      const res =  await axios.get("/api/products")
+      setProducts(res.data);
+    };
+
+    getHomeData();
+  },[]);
      
+
   return (
     <>
       <title>Ecommerce Project</title>
