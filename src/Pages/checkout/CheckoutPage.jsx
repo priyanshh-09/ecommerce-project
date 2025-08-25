@@ -19,22 +19,24 @@ export function CheckoutPage({ cart }) {
      setPaymentSummary(res.data);
     }   
     getCheckoutData();
-
   }, []);
-
+   
   return (
     <>
       <title>Checkout</title>
+
       <link rel="icon" type="image/svg+xml" href="cart-favicon.png" />;
+
       <CheckoutHeader />
 
       <div className="checkout-page">
 
         <div className="page-title">Review your order</div>
         <div className="checkout-grid">
-        
+
           <OrderSummary cart={cart} deliveryoptions={deliveryoptions}/>
           <PaymentSummary paymentSummary={paymentSummary} />
+
         </div>
       </div>
     </>

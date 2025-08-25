@@ -7,9 +7,11 @@ import '../Pages/Header.css';
 
 export function Header({ cart }){
   let totalQuantity = 0;
-  cart.forEach((cartitem)=>{
-     totalQuantity += cartitem.quantity;
-  })
+  if(cart){
+    cart.forEach((cartitem) => {
+      totalQuantity += cartitem.quantity;
+    });
+  }
     return (
       <>
         <div className="header">
