@@ -1,10 +1,12 @@
 
 import CartItemsDetails from "../CartItemsDetails";
 import DeliveryDate from "../DeliveryDate";
+// import DeliveryOptions from "./DeliveryOptions";
 
-export function OrderSummary({cart, deliveryoptions}) {
+export function OrderSummary({cart, deliveryoptions, loadCart}) {
   return (
     <div className="order-summary">
+    
       {deliveryoptions.length > 0 &&
         cart.map((cartitem) => {
           const selectedDiliveryOption = deliveryoptions.find(
@@ -14,10 +16,12 @@ export function OrderSummary({cart, deliveryoptions}) {
           );
           return (
             <div key={cartitem.productId} className="cart-item-container">
-
-           <DeliveryDate selectedDiliveryOption={selectedDiliveryOption}/>
-           <CartItemsDetails cartitem={cartitem} deliveryoptions={deliveryoptions}/>
-           
+              <DeliveryDate selectedDiliveryOption={selectedDiliveryOption} />
+              <CartItemsDetails
+                cartitem={cartitem}
+                deliveryoptions={deliveryoptions}
+                loadCart={loadCart}
+              />
             </div>
           );
         })}

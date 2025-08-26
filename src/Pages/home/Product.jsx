@@ -17,7 +17,8 @@ export function Product({product, loadCart}){
     const selectQuantity = (eve) => {
               const qauntitySelected = Number(eve.target.value);
               setQuantity(qauntitySelected);
-    }
+    };
+
     return (
       <div className="product-container">
         <div className="product-image-container">
@@ -60,7 +61,7 @@ export function Product({product, loadCart}){
 
         <div className="added-to-cart">
           <img src={CheckmarkIcon} />
-          Added
+           Added
         </div>
 
         <button

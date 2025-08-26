@@ -22,14 +22,19 @@ function App() {
     },[])
      
   return (
-      <Routes>
-        <Route index element={<HomePage cart={cart} loadCart={loadCart}/>}/>
-        <Route path="checkout" element={<CheckoutPage cart={cart}/>}/>
-        <Route path="orders" element={<OrdersPage cart={cart} />}/>
-        <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />}/>
-      <Route path="*" element={<ErrorDisplay cart={cart}/>} />
-      </Routes>
-
+    <Routes>
+      <Route index element={<HomePage cart={cart} loadCart={loadCart} />} />
+      <Route
+        path="checkout"
+        element={<CheckoutPage cart={cart} loadCart={loadCart} />}
+      />
+      <Route path="orders" element={<OrdersPage cart={cart} />} />
+      <Route
+        path="tracking/:orderId/:productId"
+        element={<TrackingPage cart={cart} />}
+      />
+      <Route path="*" element={<ErrorDisplay cart={cart} />} />
+    </Routes>
   );
 }
 

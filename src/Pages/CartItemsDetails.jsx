@@ -1,7 +1,7 @@
 import { formatMoney } from "./checkout/utils/money";
 import DeliveryOptions from "./checkout/DeliveryOptions";
 
-export default function CartItemsDetails({cartitem, deliveryoptions}) {
+export default function CartItemsDetails({cartitem, deliveryoptions, loadCart}) {
   return (
 <>
 <div className="cart-item-details-grid">
@@ -28,7 +28,7 @@ export default function CartItemsDetails({cartitem, deliveryoptions}) {
                 </div>
             </div>
                 
-            <DeliveryOptions cartitem={cartitem} deliveryoptions={deliveryoptions} />
+            <DeliveryOptions cartitem={cartitem} deliveryoptions={deliveryoptions} loadCart={loadCart} />
             
             </div>
     </>
