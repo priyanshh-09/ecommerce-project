@@ -1,11 +1,11 @@
 
-import { ProductsGrid } from './productsGrid';
+import { ProductsGrid } from './ProductsGrid';
 import axios from 'axios'
 import { useEffect,useState } from 'react';
 import { Header } from "../../components/Header";
 import "./HomePage.css";
 
-export function HomePage({cart}) {
+export function HomePage({cart, loadCart}) {
   const[products,setProducts] = useState([])
   
   useEffect(()=>{
@@ -21,11 +21,13 @@ export function HomePage({cart}) {
   return (
     <>
       <title>Ecommerce Project</title>
+
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />;
+
       <Header cart={cart} />
       
       <div className="home-page">
-      <ProductsGrid products={products}/>
+      <ProductsGrid products={products} loadCart={loadCart}/>
       </div>
     </>
   );
