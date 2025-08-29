@@ -3,6 +3,7 @@ import { OrderSummary } from "./OrderSummary";
 import { PaymentSummary } from "./PaymentSummary";
 import { useState, useEffect } from "react";
 import { CheckoutHeader } from "./CheckoutHeader";
+window.axios = axios;
 
 import "./CheckoutPage.css";
 
@@ -10,17 +11,28 @@ export function CheckoutPage({ cart, loadCart}) {
   const [deliveryoptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
+  // this useEffect will run only once
   useEffect(() => {
     const getCheckoutData = async()=>{
-    let res = await axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
+    const res = await axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
     setDeliveryOptions(res.data);
-
-     res = await axios.get("/api/payment-summary")
-     setPaymentSummary(res.data);
-    }   
+    } ; 
 
     getCheckoutData();
-  }, [cart]);
+  }, []);
+
+  // this useEaffect will run every time when the cart gets changes
+  useEffect(()=>{
+    const fetchPaymentSummary =async()=>{
+      
+     const res = await axios.get("/api/payment-summary");
+     setPaymentSummary(res.data);
+
+    };
+
+    fetchPaymentSummary();
+
+  },[cart]);
    
   return (
     <>
