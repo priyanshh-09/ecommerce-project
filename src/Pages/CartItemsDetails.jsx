@@ -76,7 +76,7 @@ export default function CartItemsDetails({cartitem, deliveryoptions, loadCart}) 
             </span>
           </div>
         </div>
-
+   {/* comment addded */}
         <DeliveryOptions
           cartitem={cartitem}
           deliveryoptions={deliveryoptions}
